@@ -39,7 +39,7 @@ plik formacie XML.
 %setup -q -n %{name}-%{version}
 
 %build
-aclocal
+%{__aclocal}
 %{__autoconf}
 %configure
 %{__make}
