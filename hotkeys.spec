@@ -11,7 +11,9 @@ Source0:	http://ypwong.org/hotkeys/%{name}_%{version}.tar.gz
 URL:		http://ypwong.org/hotkeys/
 BuildRequires:	xosd-devel
 BuildRequires:	libxml-devel
-BuildRequires:	db2-devel
+BuildRequires:	db2-devel >= 2.7.7
+BuildRequires:	automake
+BuildRequires:	autoconf
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -39,6 +41,8 @@ plik formacie XML.
 %setup -q -n %{name}-%{version}
 
 %build
+aclocal
+autoconf
 %configure
 %{__make}
 
@@ -53,7 +57,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS.gz BUGS.gz TODO.gz def/sample.xml debian/changelog.gz
+%doc *.gz def/sample.xml debian/changelog.gz
 %attr(755,root,root) %{_bindir}/%{name}
 %{_datadir}/%{name}
 %{_mandir}/man*/*
