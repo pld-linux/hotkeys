@@ -1,16 +1,16 @@
 Summary:	A program to use the special keys on internet/multimedia keyboards
 Summary(pl):	Program do wykorzystania specjalnych klawiszy na internetowych/multimedialnych klawiaturach
 Name:		hotkeys
-Version:	0.5.4
-Release:	0
+Version:	0.5.7.1
+Release:	0.1
 License:	GPL
 Group:		X11/Applications/Multimedia
-Source0:	http://ypwong.org/hotkeys/%{name}_%{version}.tar.gz
-# Source0-md5:	50810778bf50c769a39cd44ba59fd14a
+Source0:	http://ypwong.org/hotkeys/%{version}/%{name}_%{version}.tar.gz
+# Source0-md5:	68e2aea6b4444f943b5f85ac00542a1c
 URL:		http://ypwong.org/hotkeys/
 BuildRequires:	xosd-devel
-BuildRequires:	libxml-devel
-BuildRequires:	db2-devel >= 2.7.7
+BuildRequires:	libxml2-devel >= 2.2.8
+BuildRequires:	db3-devel >= 3.2.9
 BuildRequires:	automake
 BuildRequires:	autoconf
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -39,12 +39,15 @@ plik formacie XML.
 %build
 %{__aclocal}
 %{__autoconf}
-%configure
+%configure 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%makeinstall
+
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
+#%makeinstall
 
 %clean
 rm -rf $RPM_BUILD_ROOT
