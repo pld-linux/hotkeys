@@ -1,9 +1,5 @@
-# TODO:
-# - some cleanups
-# - replace manual linking in configure with some nice way
-# - really fix ac/am suite
 Summary:	A program to use the special keys on internet/multimedia keyboards
-Summary(pl):	Program do wykorzystania specjalnych klawiszy na internetowych/multimedialnych klawiaturach
+Summary(pl):	Obs³uga klawiszy specjalnych na internetowych/multimedialnych klawiaturach
 Name:		hotkeys
 Version:	0.5.7.1
 Release:	0.9
@@ -11,12 +7,14 @@ License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://ypwong.org/hotkeys/%{version}/%{name}_%{version}.tar.gz
 # Source0-md5:	68e2aea6b4444f943b5f85ac00542a1c
+Patch0:		%{name}-db41.patch
+Patch1:		%{name}-libxml2.patch
 URL:		http://ypwong.org/hotkeys/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	db-devel
+BuildRequires:	db-devel >= 4.1
 BuildRequires:	libxml2-devel >= 2.2.8
-BuildRequires:	xosd-devel
+BuildRequires:	xosd-devel >= 0.7.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -39,17 +37,14 @@ plik formacie XML.
 
 %prep
 %setup -q
+%patch0 -p1
+%patch1 -p1
 
 %build
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-%configure \
-	CFLAGS="%{rpmcflags} -I/usr/include/libxml2/libxml -I/usr/include/libxml2" \
-	LDFLAGS="-lxml2 -ldb" \
-	--with-db3-inc=/usr/include \
-	--disable-db3test \
-	--with-xml-exec-prefix=/usr 
+%configure
 %{__make}
 
 %install
@@ -67,4 +62,4 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not size mtime md5) /etc/hotkeys.conf
 %attr(755,root,root) %{_bindir}/%{name}
 %{_datadir}/%{name}
-%{_mandir}/man*/*
+%{_mandir}/man1/*
