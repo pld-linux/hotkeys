@@ -15,7 +15,7 @@ BuildRequires:	automake
 BuildRequires:	db-devel >= 4.1
 BuildRequires:	gtk+2-devel >= 1:2.0.0
 BuildRequires:	libxml2-devel >= 2.2.8
-BuildRequires:	pkgconfig >= 0.7
+BuildRequires:	pkgconfig >= 1:0.7
 BuildRequires:	xosd-devel >= 0.7.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
