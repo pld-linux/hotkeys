@@ -1,22 +1,23 @@
-Summary: A program to use the special keys on internet/multimedia keyboards.
-Name: hotkeys
-Version: 0.5.2
-Release: 1
-Serial: 1
-Copyright: GPL
-Group: Applications/System
-Source: http://ypwong.org/hotkeys/%{name}_%{version}.tar.gz
-URL: http://ypwong.org/hotkeys/
-BuildRoot: %{_tmppath}/%{name}-root
-Requires: xosd, libxml
-BuildRequires: xosd, db2-devel, libxml-devel
+Summary:	A program to use the special keys on internet/multimedia keyboards.
+Name:		hotkeys
+Version:	0.5.4
+Release:	0
+License:	GPL
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
+Source0:	http://ypwong.org/hotkeys/%{name}_%{version}.tar.gz
+URL:		http://ypwong.org/hotkeys/
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Requires:	xosd, libxml
+BuildRequires:	xosd, db2-devel, libxml-devel
 
 %description
 The HotKeys daemon listens for the "special" hotkeys that you won't
 normally use on your Internet/Multimedia keyboards. The buttons
 perform their intended behaviors, such as volume up and down, mute the
-speaker, or launch applications.  It has On-screen display (OSD) to
-show the volume, program that's being started, etc.  It features an
+speaker, or launch applications. It has On-screen display (OSD) to
+show the volume, program that's being started, etc. It features an
 XML-based keycode configuration file format, which makes it possible
 to define the hotkeys to launch any programs you want.
 
@@ -28,6 +29,7 @@ to define the hotkeys to launch any programs you want.
 make
 
 %install
+rm -rf $RPM_BUILD_ROOT
 rm -rf %{buildroot}
 %makeinstall
 
@@ -35,18 +37,8 @@ rm -rf %{buildroot}
 rm -rf %{buildroot}
 
 %files
-%defattr(-, root, root)
+%defattr(644,root,root,755)
 %doc AUTHORS BUGS COPYING INSTALL TODO def/sample.xml debian/changelog
-%{_bindir}/%{name}
+%attr(755,root,root) %{_bindir}/%{name}
 %{_datadir}/%{name}
 %{_mandir}/man*/*
-
-%changelog
-* Thu Feb  8 2001 Matthias Saou <matthias.saou@est.une.marmotte.net>
-- Update to 0.5
-
-* Sat Feb  3 2001 Matthias Saou <matthias.saou@est.une.marmotte.net>
-- Update to 0.4
-
-* Sat Jan 20 2001 Matthias Saou <matthias.saou@est.une.marmotte.net>
-- Initial spec file.
