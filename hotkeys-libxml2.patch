@@ -1,0 +1,13 @@
+--- hotkeys-0.5.7.1/src/kbddef.c.orig	2002-11-27 20:51:11.000000000 +0100
++++ hotkeys-0.5.7.1/src/kbddef.c	2004-02-16 00:24:35.557223896 +0100
+@@ -37,8 +37,8 @@
+  */
+ #include "XF86keysym.h"
+ 
+-#include <xmlmemory.h>
+-#include <parser.h>
++#include <libxml/xmlmemory.h>
++#include <libxml/parser.h>
+ 
+ #include "hotkeys.h"
+ #include "kbddef.h"
