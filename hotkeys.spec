@@ -13,7 +13,7 @@ URL:		http://ypwong.org/hotkeys/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	db-devel >= 4.1
-BuildRequires:	gtk+2-devel >= 2.0.0
+BuildRequires:	gtk+2-devel >= 1:2.0.0
 BuildRequires:	libxml2-devel >= 2.2.8
 BuildRequires:	pkgconfig >= 0.7
 BuildRequires:	xosd-devel >= 0.7.0
