@@ -1,8 +1,12 @@
+# TODO:
+# - some cleanups
+# - replace manual linking in configure with some nice way
+# - really fix ac/am suite
 Summary:	A program to use the special keys on internet/multimedia keyboards
 Summary(pl):	Program do wykorzystania specjalnych klawiszy na internetowych/multimedialnych klawiaturach
 Name:		hotkeys
 Version:	0.5.7.1
-Release:	0.1
+Release:	0.9
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://ypwong.org/hotkeys/%{version}/%{name}_%{version}.tar.gz
@@ -10,7 +14,7 @@ Source0:	http://ypwong.org/hotkeys/%{version}/%{name}_%{version}.tar.gz
 URL:		http://ypwong.org/hotkeys/
 BuildRequires:	xosd-devel
 BuildRequires:	libxml2-devel >= 2.2.8
-BuildRequires:	db3-devel >= 3.2.9
+BuildRequires:	db4-devel
 BuildRequires:	automake
 BuildRequires:	autoconf
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -39,7 +43,13 @@ plik formacie XML.
 %build
 %{__aclocal}
 %{__autoconf}
-%configure 
+%{__automake}
+%configure \
+	CFLAGS="%{rpmcflags} -I/usr/include/libxml2/libxml -I/usr/include/libxml2" \
+	LDFLAGS="-lxml2 -ldb4" \
+	--with-db3-inc=/usr/include/db4 \
+	--disable-db3test \
+	--with-xml-exec-prefix=/usr 
 %{__make}
 
 %install
@@ -55,6 +65,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS BUGS TODO debian/changelog def/sample.xml
+%attr(644,root,root) %config(noreplace) /etc/hotkeys.conf
 %attr(755,root,root) %{_bindir}/%{name}
 %{_datadir}/%{name}
 %{_mandir}/man*/*
