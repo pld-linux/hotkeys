@@ -6,6 +6,7 @@ Release:	0
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://ypwong.org/hotkeys/%{name}_%{version}.tar.gz
+# Source0-md5:	50810778bf50c769a39cd44ba59fd14a
 URL:		http://ypwong.org/hotkeys/
 BuildRequires:	xosd-devel
 BuildRequires:	libxml-devel
