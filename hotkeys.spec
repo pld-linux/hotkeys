@@ -48,14 +48,12 @@ plik formacie XML.
 rm -rf $RPM_BUILD_ROOT
 %makeinstall
 
-gzip -9nf AUTHORS BUGS TODO debian/changelog
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz def/sample.xml debian/changelog.gz
+%doc AUTHORS BUGS TODO debian/changelog def/sample.xml
 %attr(755,root,root) %{_bindir}/%{name}
 %{_datadir}/%{name}
 %{_mandir}/man*/*
