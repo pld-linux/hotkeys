@@ -5,8 +5,6 @@ Version:	0.5.4
 Release:	0
 License:	GPL
 Group:		X11/Applications/Multimedia
-Group(de):	X11/Applikationen/Multimedia
-Group(pl):	X11/Aplikacje/Multimedia
 Source0:	http://ypwong.org/hotkeys/%{name}_%{version}.tar.gz
 URL:		http://ypwong.org/hotkeys/
 BuildRequires:	xosd-devel
