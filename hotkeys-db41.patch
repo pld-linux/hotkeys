@@ -1,0 +1,32 @@
+--- hotkeys-0.5.7.1/src/conf.c.orig	2002-11-27 20:30:08.000000000 +0100
++++ hotkeys-0.5.7.1/src/conf.c	2004-02-16 00:21:00.889858296 +0100
+@@ -249,7 +249,7 @@
+         bailout();
+     }
+ 
+-    if ( (ret = dbp->open(dbp, NULL, NULL, DB_HASH, DB_CREATE, 0664)) != 0 )
++    if ( (ret = dbp->open(dbp, NULL, NULL, NULL, DB_HASH, DB_CREATE, 0664)) != 0 )
+     {
+         uError("Can't create hash table: %d", ret);
+         bailout();
+--- hotkeys-0.5.7.1/acinclude.m4.orig	2002-11-25 19:27:13.000000000 +0100
++++ hotkeys-0.5.7.1/acinclude.m4	2004-02-16 00:28:13.390108264 +0100
+@@ -351,8 +351,7 @@
+     dnl
+     dnl We need to check both libdb and libdb3
+     dnl
+-    AC_CHECK_LIB(db3, db_create, , [ nodb=yes ])
+-    if test "x$nodb" = "xyes"
++    if true
+     then
+         AC_CHECK_LIB(db, db_create, ,
+           [ AC_MSG_RESULT(no)
+@@ -374,7 +373,7 @@
+     {
+         int major=0, minor=0, patch=0;
+         db_version(&major, &minor, &patch);
+-        if ( major==3 && ((minor==2 && patch>=9) || minor>2) )
++        if ( (major==3 && ((minor==2 && patch>=9) || minor>2)) || major>3 )
+             exit(0);
+         else
+             exit(1);
