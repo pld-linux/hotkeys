@@ -15,7 +15,6 @@ BuildRequires:	automake
 BuildRequires:	autoconf
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-
 %description
 The HotKeys daemon listens for the "special" hotkeys that you won't
 normally use on your Internet/Multimedia keyboards. The buttons
@@ -35,7 +34,7 @@ uruchamianych programów itp. Klawisze mog± byæ konfigurowane przez
 plik formacie XML.
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q
 
 %build
 %{__aclocal}
