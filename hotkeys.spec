@@ -12,11 +12,11 @@ Group:		X11/Applications/Multimedia
 Source0:	http://ypwong.org/hotkeys/%{version}/%{name}_%{version}.tar.gz
 # Source0-md5:	68e2aea6b4444f943b5f85ac00542a1c
 URL:		http://ypwong.org/hotkeys/
-BuildRequires:	xosd-devel
-BuildRequires:	libxml2-devel >= 2.2.8
-BuildRequires:	db4-devel
-BuildRequires:	automake
 BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	db-devel
+BuildRequires:	libxml2-devel >= 2.2.8
+BuildRequires:	xosd-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -46,8 +46,8 @@ plik formacie XML.
 %{__automake}
 %configure \
 	CFLAGS="%{rpmcflags} -I/usr/include/libxml2/libxml -I/usr/include/libxml2" \
-	LDFLAGS="-lxml2 -ldb4" \
-	--with-db3-inc=/usr/include/db4 \
+	LDFLAGS="-lxml2 -ldb" \
+	--with-db3-inc=/usr/include \
 	--disable-db3test \
 	--with-xml-exec-prefix=/usr 
 %{__make}
@@ -57,7 +57,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-#%makeinstall
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -65,7 +64,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS BUGS TODO debian/changelog def/sample.xml
-%attr(644,root,root) %config(noreplace) /etc/hotkeys.conf
+%config(noreplace) %verify(not size mtime md5) /etc/hotkeys.conf
 %attr(755,root,root) %{_bindir}/%{name}
 %{_datadir}/%{name}
 %{_mandir}/man*/*
