@@ -3,14 +3,13 @@ Name:		hotkeys
 Version:	0.5.4
 Release:	0
 License:	GPL
-Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
+Group:		X11/Applications/Multimedia
 Source0:	http://ypwong.org/hotkeys/%{name}_%{version}.tar.gz
 URL:		http://ypwong.org/hotkeys/
+BuildRequires:	xosd-devel
+BuildRequires:	libxml-devel
+BuildRequires:	db2-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-Requires:	xosd, libxml
-BuildRequires:	xosd, db2-devel, libxml-devel
 
 %description
 The HotKeys daemon listens for the "special" hotkeys that you won't
