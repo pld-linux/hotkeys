@@ -1,3 +1,5 @@
+# TODO doesn't build at gcc-3.3.5-1 from ftp returns error
+#	"cannot specify -o with -c or -S and multiple compilations"
 Summary:	A program to use the special keys on internet/multimedia keyboards
 Summary(pl):	Obs³uga klawiszy specjalnych na internetowych/multimedialnych klawiaturach
 Name:		hotkeys
