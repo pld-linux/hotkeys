@@ -1,0 +1,11 @@
+--- hotkeys-0.5.7.1/src/Makefile.am.orig	2005-06-25 19:55:16.000000000 +0200
++++ hotkeys-0.5.7.1/src/Makefile.am	2005-06-25 19:55:29.000000000 +0200
+@@ -6,7 +6,7 @@
+ sysconf_DATA    = hotkeys.conf
+ man_MANS        = hotkeys.1
+ 
+-CFLAGS      = @CFLAGS@ @X_CFLAGS@ @XML_CFLAGS@ @LIBXOSD_CFLAGS@ @GTK_CFLAGS@ -I.. # -DDEBUG 
++CFLAGS      = @CFLAGS@ @X_CFLAGS@ @XML_CPPFLAGS@ @LIBXOSD_CFLAGS@ @GTK_CFLAGS@ -I.. # -DDEBUG 
+ LIBS        = @LIBS@ @X_LIBS@ @XML_LIBS@ @LIBXOSD_LIBS@ @GTK_LIBS@
+ DEFS        = @DEFS@ -DSHAREDIR=\"@datadir@/@PACKAGE@\" \
+               -DCONFDIR=\"@sysconfdir@\" -DCONFIG_NAME=\"@PACKAGE@.conf\"

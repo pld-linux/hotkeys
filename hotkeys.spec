@@ -11,6 +11,7 @@ Source0:	http://ypwong.org/hotkeys/%{version}/%{name}_%{version}.tar.gz
 # Source0-md5:	68e2aea6b4444f943b5f85ac00542a1c
 Patch0:		%{name}-db41.patch
 Patch1:		%{name}-libxml2.patch
+Patch2:		%{name}-ac_am.patch
 URL:		http://ypwong.org/hotkeys/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -43,6 +44,7 @@ plik formacie XML.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %{__aclocal}
