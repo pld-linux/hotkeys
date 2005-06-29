@@ -1,0 +1,12 @@
+diff -Nur hotkeys-0.5.7.1.orig/src/conf.c hotkeys-0.5.7.1/src/conf.c
+--- hotkeys-0.5.7.1.orig/src/conf.c	2005-06-29 08:15:00.000000000 +0200
++++ hotkeys-0.5.7.1/src/conf.c	2005-06-29 08:16:17.000000000 +0200
+@@ -265,7 +265,7 @@
+         parseConfigFile(filename);
+ 
+     /* See whether the user has his own config file */
+-    if ( (h = getenv("HOME")) != NULL )
++    if (( (h = getenv("HOME_ETC")) != NULL ) || ( (h = getenv("HOME")) != NULL))
+     {
+         strncpy( filename, h, MAXPATHLEN-2-strlen(PACKAGE)-1-strlen(CONFIG_NAME)-1 );
+         strcat( filename, "/." PACKAGE "/" );

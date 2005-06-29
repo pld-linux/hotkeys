@@ -1,10 +1,11 @@
 # TODO doesn't build at gcc-3.3.5-1 from ftp returns error
 #	"cannot specify -o with -c or -S and multiple compilations"
+#
 Summary:	A program to use the special keys on internet/multimedia keyboards
 Summary(pl):	Obs³uga klawiszy specjalnych na internetowych/multimedialnych klawiaturach
 Name:		hotkeys
 Version:	0.5.7.1
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://ypwong.org/hotkeys/%{version}/%{name}_%{version}.tar.gz
@@ -12,6 +13,7 @@ Source0:	http://ypwong.org/hotkeys/%{version}/%{name}_%{version}.tar.gz
 Patch0:		%{name}-db41.patch
 Patch1:		%{name}-libxml2.patch
 Patch2:		%{name}-ac_am.patch
+Patch3:		%{name}-home_etc.patch
 URL:		http://ypwong.org/hotkeys/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -45,6 +47,7 @@ plik formacie XML.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 %{__aclocal}
