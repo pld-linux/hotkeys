@@ -1,5 +1,5 @@
 Summary:	A program to use the special keys on internet/multimedia keyboards
-Summary(pl):	Obs≥uga klawiszy specjalnych na internetowych/multimedialnych klawiaturach
+Summary(pl.UTF-8):   Obs≈Çuga klawiszy specjalnych na internetowych/multimedialnych klawiaturach
 Name:		hotkeys
 Version:	0.5.7.1
 Release:	2
@@ -30,13 +30,13 @@ show the volume, program that's being started, etc. It features an
 XML-based keycode configuration file format, which makes it possible
 to define the hotkeys to launch any programs you want.
 
-%description -l pl
-Demon HotKeys czeka na naci∂niÍcia "specjalnych" klawiszy, ktÛrych
-normalnie nie uøy≥by∂ z klawiatur internetowych/multimedialnych.
-Przyciski wykonuj± swoje zamierzone zadanie, takie jak zwiÍkszanie i
-zmniejszanie g≥o∂no∂ci, wyciszanie g≥o∂nika, uruchamianie programÛw.
-Obs≥uguje OSD (On-screen display) do pokazywania g≥o∂no∂ci,
-uruchamianych programÛw itp. Klawisze mog± byÊ konfigurowane przez
+%description -l pl.UTF-8
+Demon HotKeys czeka na naci≈õniƒôcia "specjalnych" klawiszy, kt√≥rych
+normalnie nie u≈ºy≈Çby≈õ z klawiatur internetowych/multimedialnych.
+Przyciski wykonujƒÖ swoje zamierzone zadanie, takie jak zwiƒôkszanie i
+zmniejszanie g≈Ço≈õno≈õci, wyciszanie g≈Ço≈õnika, uruchamianie program√≥w.
+Obs≈Çuguje OSD (On-screen display) do pokazywania g≈Ço≈õno≈õci,
+uruchamianych program√≥w itp. Klawisze mogƒÖ byƒá konfigurowane przez
 plik formacie XML.
 
 %prep
