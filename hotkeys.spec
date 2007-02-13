@@ -1,5 +1,5 @@
 Summary:	A program to use the special keys on internet/multimedia keyboards
-Summary(pl.UTF-8):   Obsługa klawiszy specjalnych na internetowych/multimedialnych klawiaturach
+Summary(pl.UTF-8):	Obsługa klawiszy specjalnych na internetowych/multimedialnych klawiaturach
 Name:		hotkeys
 Version:	0.5.7.1
 Release:	2
