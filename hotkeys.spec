@@ -2,7 +2,7 @@ Summary:	A program to use the special keys on internet/multimedia keyboards
 Summary(pl.UTF-8):	Obsługa klawiszy specjalnych na internetowych/multimedialnych klawiaturach
 Name:		hotkeys
 Version:	0.5.7.1
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://ypwong.org/hotkeys/%{version}/%{name}_%{version}.tar.gz
